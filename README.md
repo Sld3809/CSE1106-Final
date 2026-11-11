@@ -30,7 +30,9 @@ Member Responisbilities;
 1. Stephen Dinh - Everything (that's what happens when you miss class)
 
 LIMITATIONS;
-must input int or double, NO TEMPERATURES CAN BE SPELLED OUT!
-NO prompt for "Acceptable Temperature Range" other than on initialization (e.g. sudo ./monitor (low) (high)) 
+1. Must input int or double, NO TEMPERATURES CAN BE SPELLED OUT!
+
+2. NO prompt for "Acceptable Temperature Range" other than on initialization (e.g. sudo ./monitor (low) (high)) 
 averages are calculated after every input.
-because automated temperature input (say from a live feed/active thermostat) was not specified in assignment criteria, manual input only - see first point (line 33)
+
+3. Automated temperature input (say from a live feed/active thermostat) was not specified in assignment criteria, manual input only - see first point (line 33)
