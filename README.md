@@ -37,17 +37,17 @@ Temperature System Status Warning LED
 
 65°F WARNING ON
 
-Team Members;
+Team Members:
 
 1. Stephen Dinh
    
 2.(No other members, i was absent 11/4 and have not had opportunity to join a group)
 
-Member Responisbilities;
+Member Responisbilities:
 
 1. Stephen Dinh - Everything (that's what happens when you miss class)
 
-LIMITATIONS;
+LIMITATIONS:
 
 1. Must input int or double, NO TEMPERATURES CAN BE SPELLED OUT!
 
@@ -56,3 +56,27 @@ LIMITATIONS;
 3.averages are calculated after every input.
 
 4. Automated temperature input (say from a live feed/active thermostat) was not specified in assignment criteria, manual input only - see first point (line 33)
+
+Description:
+
+(L1-6)
+
+Multiline comment - To run, use gcc command with pigpio library flag. To run on Pi, use sudo from root folder. OPTIONAL: pass two numbers (Lower bound), (Upper bound) to adjust temperature limits.
+
+(L7-15)
+
+Before main, import standard input/output tools, library utls, math funnctions, and Pi gpio's. Follow with macro constants. 
+
+(L16-64)
+
+Main entry point - after accepting commandline arg, set default temp bounds to 68.0 (low) and 76.0 (high). Should the user pass two custom arg on startup, convert those strings > numbers and override the default values. 
+Begin initializing the Pi's hardware. If it fails/returns a negative number, print an error and a tip "remember sudo". exit immediately with an error code. OTHERWISE, config GPIO17 as an output pin. Proceed to print the active temp range. 
+Allocate a (64) character text buffer and an end-pointer for input parsing. Create a double for current temp, an accumulator var "sum", ini to 0 > all this to set up workspace memory. 
+Begin running the (infinite) loop. Print a prompt asking for a manual input of a temp/q = quit. Should the read fail, or "q" is pressed, break the loop and end the program.
+Attempt to convert the (!= q) input into a double, stporing the result in "t". Should no number be found, or if there are trailing invalid inputs, or if the number is != finite, print an error message and skip to the next loop iteration.
+The program then proceeds to evaluate if "t" is outside the lower/upper bounds, storing the result in the "warn" flag. "WARNING" or "NORMAL" is assigned to the status label. Drive the LED pin to high if warning, or LED > low (off) if normal. finally, add the temperature to the running sum and increment the entry count (++). 
+Open the CSV log. If the log is new, write a header row. Append the current "t" and status, then close the file. 
+Seperately, open the Status text file, write/overwrite with the current stroing and close.
+Print a summary line to the console showing the entered temp, system status, LED state, total count of valid entries, and the running avg. Then loop back to the top.
+
+Should the loop be broken, drive the LED to low. Shut down the Pigpio bg threads and exit the program with code 0.
