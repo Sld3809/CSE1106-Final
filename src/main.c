@@ -14,7 +14,7 @@
 #define STATUS_FILE  "status.txt"
 
 int main(int argc, char *argv[]) {
-    double low = 68.0, high = 76.0;    // acceptable range, inclusive
+    double low = 68.0, high = 76.0;    // acceptable range, inclusive, base parameters
     if (argc == 3) { low = atof(argv[1]); high = atof(argv[2]); }
 
     if (gpioInitialise() < 0) {
