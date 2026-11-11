@@ -1,0 +1,21 @@
+Test Plan.md,,,
+,,,
+Parameters (t) (low/high),Temperatures (F),Expected Output (LED 0/1),Actual Output (Led 0/1)
+,,,
+68/76 (base),67,1,1
+68/76 (base),67.9,1,1
+68/76 (base),73,0,0
+68/76 (base),76,0,0
+68/76 (base),78,1,1
+,,,
+65/74 (custom),64,1,1
+65/74 (custom),65,0,0
+65/74 (custom),70,0,0
+65/74 (custom),75,1,1
+65/74 (custom),80,1,1
+,,,
+70/80 (custom),,,
+70/80 (custom),,,
+70/80 (custom),,,
+70/80 (custom),,,
+70/80 (custom),,,
