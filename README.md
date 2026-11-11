@@ -24,6 +24,7 @@ Temperature System Status Warning LED
 
 Team Members;
 1. Stephen Dinh
+   
 2.(No other members, i was absent 11/4 and have not had opportunity to join a group)
 
 Member Responisbilities;
